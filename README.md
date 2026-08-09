@@ -38,3 +38,19 @@ Add-MpPreference -ExclusionPath "C:\NovaSuite_Aegis"
 # 3. Copier vos scripts dans ce dossier, se placer dedans, puis lancer :
 .\install_sentinel.ps1
 .\install_terminator_sentinel.ps1
+
+### Installation recommandée (PowerShell Administrateur) :
+
+```powershell
+# 1. Créer le bunker sur le disque principal
+New-Item -Path "C:\NovaSuite_Aegis" -ItemType Directory -Force
+
+# 2. Mettre le dossier sur liste blanche (Exclusion Defender)
+Add-MpPreference -ExclusionPath "C:\NovaSuite_Aegis"
+
+# 3. Déployer les sentinelles :
+.\install_sentinel.ps1
+.\install_terminator_sentinel.ps1
+
+# 4. Vérifier le silence radio (Audit) :
+.\aegis_hunter.ps1
